@@ -1,160 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>CoolDrink</title>
-
-<style>
-body{
-margin:0;
-font-family:Arial;
-overflow:hidden;
-background:black;
-color:white;
-}
-
-.hero{
-height:100vh;
-background:linear-gradient(#7a0000,#ff0000);
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-text-align:center;
-position:relative;
-overflow:hidden;
-}
-
-h1{
-font-size:70px;
-margin:0;
-text-shadow:0 0 20px white;
-z-index:10;
-}
-
-p{
-z-index:10;
-font-size:20px;
-}
-
-button{
-background:white;
-color:red;
-border:none;
-padding:15px 40px;
-font-size:20px;
-border-radius:30px;
-cursor:pointer;
-z-index:10;
-box-shadow:0 0 15px white;
-}
-
-.cola{
-position:absolute;
-bottom:-200px;
-width:100%;
-height:60%;
-background:linear-gradient(#3b0a0a,#8b0000,#ff0000);
-border-radius:50% 50% 0 0;
-animation:wave 6s infinite ease-in-out;
-}
-
-@keyframes wave{
-0%{height:60%;}
-50%{height:70%;}
-100%{height:60%;}
-}
-
-.bubble{
-position:absolute;
-bottom:0;
-width:15px;
-height:15px;
-background:white;
-border-radius:50%;
-opacity:0.7;
-animation:rise 6s infinite;
-}
-
-@keyframes rise{
-0%{transform:translateY(0); opacity:0;}
-50%{opacity:1;}
-100%{transform:translateY(-600px); opacity:0;}
-}
-
-.bottle{
-position:absolute;
-right:40px;
-bottom:100px;
-width:200px;
-animation:float 3s infinite ease-in-out;
-z-index:5;
-filter:drop-shadow(0 0 20px white);
-}
-
-@keyframes float{
-0%{transform:translateY(0);}
-50%{transform:translateY(-20px);}
-100%{transform:translateY(0);}
-}
-
-.ice{
-position:absolute;
-width:30px;
-height:30px;
-background:rgba(255,255,255,0.7);
-border-radius:5px;
-animation:ice 6s infinite;
-}
-
-@keyframes ice{
-0%{transform:translateY(0) rotate(0deg);}
-100%{transform:translateY(-600px) rotate(360deg);}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F5 Restaurant - Tirupati</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #d32f2f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .rating {
+            color: #ffc107;
+            font-size: 1.2em;
+        }
+        .menu-item, .review {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+        .gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+            padding: 10px 0;
+        }
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .review-toggle {
+            cursor: pointer;
+            color: #d32f2f;
+        }
+        .review-content {
+            display: none;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #d32f2f;
+            color: white;
+        }
+    </style>
 </head>
-
 <body>
+    <header>
+        <h1><i class="fas fa-utensils"></i> F5 Restaurant</h1>
+        <p>F5 రెస్టారెంట్</p>
+        <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> 4.1 (1,078 reviews) · ₹200–400 · Restaurant
+        </div>
+        <p><i class="fas fa-clock"></i> Closed · Opens 9 am</p>
+    </header>
 
-<div class="hero">
-<h1>CoolDrink</h1>
-<p>Refresh Your World</p>
-<button onclick="splash()">Open Bottle</button>
+    <div class="container">
+        <div class="section" id="overview">
+            <h2><i class="fas fa-info-circle"></i> Overview</h2>
+            <p><i class="fas fa-map-marker-alt"></i> Vidhya nikethan, Ragampeta, Tirupati, Andhra Pradesh 517102</p>
+            <p><i class="fas fa-phone"></i> 092472 29247</p>
+            <p><i class="fas fa-directions"></i> J7FQ+C3 Tirupati, Andhra Pradesh</p>
+            <p>Reported by 65 people. Dine-in, Drive-through, No-contact delivery.</p>
+        </div>
 
-<div class="cola"></div>
-<img class="bottle" src="bottle.png">
+        <div class="section" id="menu">
+            <h2><i class="fas fa-list"></i> Menu & Highlights</h2>
+            <div class="menu-item"><strong>Roti</strong> - Classic Indian bread.</div>
+            <div class="menu-item"><strong>Biriyani</strong> - Flavorful rice dish.</div>
+            <p>See more on the full menu.</p>
+        </div>
 
-<audio id="fizz">
-<source src="https://www.soundjay.com/human/sounds/soda-open-1.mp3" type="audio/mpeg">
-</audio>
+        <div class="section" id="photos">
+            <h2><i class="fas fa-images"></i> Photos & Videos</h2>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Restaurant Interior">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Food Dish">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Vibe">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Street View">
+            </div>
+        </div>
 
-</div>
+        <div class="section" id="reviews">
+            <h2><i class="fas fa-comments"></i> Reviews (4.1)</h2>
+            <div class="review">
+                <strong>TechEx BriHa</strong> (Local Guide, 42 reviews) - 5 stars, 2 years ago<br>
+                <span class="review-toggle" onclick="toggleReview('review1')">Most of the dry items are good. Must try kaju fried rice... <i class="fas fa-chevron-down"></i></span>
+                <div id="review1" class="review-content">When ordering fried rice try to mention them less oil. The taste is good.</div>
+            </div>
+            <div class="review">
+                <strong>Kishan reddy</strong> (Local Guide, 84 reviews) - 5 stars, 2 years ago<br>
+                <span class="review-toggle" onclick="toggleReview('review2')">The food here was somewhat better and worth for the price... <i class="fas fa-chevron-down"></i></span>
+                <div id="review2" class="review-content">But the roti was not nice. The thickness of the parota was very heavy. Out of that everything in this restaurant was tasty.</div>
+            </div>
+            <div class="review">
+                <strong>Shashi Kiran</strong> (Local Guide, 10 reviews) - 4 stars, 3 years ago<br>
+                <span class="review-toggle" onclick="toggleReview('review3')">The atmosphere is good... <i class="fas fa-chevron-down"></i></span>
+                <div id="review3" class="review-content">Nice place for everyone to spend time. Only disappointment is it takes more time to get the food on the table. The taste of the food is not bad.</div>
+            </div>
+            <p>More reviews (1,075)...</p>
+        </div>
 
-<script>
-// bubbles
-for(let i=0;i<60;i++){
-let b=document.createElement("div");
-b.className="bubble";
-b.style.left=Math.random()*100+"%";
-b.style.animationDelay=Math.random()*5+"s";
-b.style.width=b.style.height=(5+Math.random()*20)+"px";
-document.body.appendChild(b);
-}
+        <div class="section" id="about">
+            <h2><i class="fas fa-building"></i> About</h2>
+            <p>A popular restaurant in Tirupati known for its delicious food, excellent service, and inviting atmosphere. People also search for nearby options like Sri Venkateshwara restaurant and Five Star Chicken.</p>
+        </div>
+    </div>
 
-// ice cubes
-for(let i=0;i<15;i++){
-let ice=document.createElement("div");
-ice.className="ice";
-ice.style.left=Math.random()*100+"%";
-ice.style.top="100%";
-ice.style.animationDelay=Math.random()*5+"s";
-document.body.appendChild(ice);
-}
+    <footer>
+        <p>&copy; 2023 F5 Restaurant. Powered by Google Maps data recreation.</p>
+    </footer>
 
-function splash(){
-document.querySelector(".cola").style.height="90%";
-document.getElementById("fizz").play();
-}
-</script>
-
+    <script>
+        function toggleReview(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
