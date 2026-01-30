@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coke - Refresh Your World</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s ease;
+        }
+        header {
+            background-color: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #ff0000;
+            transition: transform 0.3s ease;
+        }
+        h1:hover, h2:hover {
+            transform: scale(1.05);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: rotate(5deg);
+        }
+        button {
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #cc0000;
+        }
+        .fizz {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSIyIiBmaWxsPSIjZmZmZmZmIi8+PC9zdmc+') repeat;
+            opacity: 0;
+            animation: fizz 2s ease-out;
+        }
+        @keyframes fizz {
+            0% { opacity: 1; transform: scale(0); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(2); }
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff0000;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        canvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Coke!</h1>
+        <p>Refresh Your World</p>
+        <button id="fizzBtn">Activate Fizz Effect!</button>
+        <div id="fizzEffect" class="fizz"></div>
+    </header>
+    
+    <div class="container">
+        <h2>About Coke</h2>
+        <p>Coca-Cola is the world's most popular soft drink, enjoyed by millions every day. Whether you're chilling with friends or powering through your day, Coke is your go-to refreshment!</p>
+        
+        <h2>Fun Facts</h2>
+        <ul>
+            <li>Over 1.9 billion servings of Coke are enjoyed every day worldwide.</li>
+            <li>The iconic red color is instantly recognizable.</li>
+            <li>Coke was invented in 1886 by Dr. John Pemberton.</li>
+        </ul>
+        
+        <h2>Enjoy a Coke</h2>
+        <img src="https://via.placeholder.com/600x400?text=Coke+Bottle" alt="Coke Bottle">
+        <p>Grab a cold one and feel the fizz!</p>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Coke Fan Site. Not affiliated with The Coca-Cola Company.</p>
+    </footer>
+
+    <!-- Confetti Library (lightweight, from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Confetti on page load for wow factor
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+
+        // Fizz effect button
+        document.getElementById('fizzBtn').addEventListener('click', function() {
+            const fizz = document.getElementById('fizzEffect');
+            fizz.style.animation = 'none'; // Reset
+            setTimeout(() => {
+                fizz.style.animation = 'fizz 2s ease-out';
+            }, 10);
+        });
+    </script>
+</body>
+</html>
