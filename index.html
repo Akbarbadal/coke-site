@@ -1,186 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>F5 Restaurant — Tirupati</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>F5 Restaurant – Tirupati</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: "Segoe UI", system-ui, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: "Segoe UI", sans-serif;
 }
 
 body{
-  background:#f4f5f7;
-  color:#222;
-  overflow-x:hidden;
+background:#f4f5f7;
+color:#222;
+scroll-behavior:smooth;
+}
+
+/* NAV BAR */
+.nav{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+background:white;
+padding:15px 40px;
+border-radius:50px;
+display:flex;
+gap:30px;
+box-shadow:0 20px 40px rgba(0,0,0,.1);
+z-index:1000;
+}
+
+.nav a{
+text-decoration:none;
+color:#333;
+font-weight:500;
 }
 
 /* HERO */
 .hero{
-  height:100vh;
-  background:
-    linear-gradient(to bottom, rgba(255,255,255,.85), rgba(255,255,255,.6)),
-    url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5") center/cover;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+height:100vh;
+background:linear-gradient(rgba(255,255,255,.8),rgba(255,255,255,.5)),
+url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 }
 
 .hero-box{
-  backdrop-filter: blur(14px);
-  background: rgba(255,255,255,.65);
-  padding:60px 80px;
-  border-radius:28px;
-  box-shadow:0 30px 80px rgba(0,0,0,.1);
+background:rgba(255,255,255,.7);
+backdrop-filter:blur(15px);
+padding:70px;
+border-radius:30px;
+box-shadow:0 40px 100px rgba(0,0,0,.12);
+animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
 }
 
 .hero h1{
-  font-size:64px;
-  letter-spacing:-1px;
+font-size:64px;
 }
 
 .hero p{
-  margin-top:12px;
-  font-size:22px;
-  color:#555;
+margin:15px 0;
+font-size:22px;
+color:#555;
 }
 
 .hero button{
-  margin-top:32px;
-  padding:16px 48px;
-  font-size:18px;
-  border:none;
-  border-radius:40px;
-  background:#111;
-  color:white;
-  cursor:pointer;
+padding:15px 50px;
+border:none;
+border-radius:40px;
+background:#111;
+color:white;
+font-size:18px;
+cursor:pointer;
 }
 
 /* SLIDES */
 .slide{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:80px;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:80px;
 }
 
 .card{
-  background:white;
-  max-width:1100px;
-  width:100%;
-  border-radius:30px;
-  display:flex;
-  gap:50px;
-  padding:60px;
-  box-shadow:0 40px 120px rgba(0,0,0,.08);
+background:white;
+border-radius:30px;
+padding:60px;
+max-width:1100px;
+display:flex;
+gap:50px;
+box-shadow:0 30px 80px rgba(0,0,0,.08);
 }
 
 .card img{
-  width:45%;
-  border-radius:25px;
-  object-fit:cover;
+width:45%;
+border-radius:25px;
+object-fit:cover;
 }
 
 .card-text{
-  width:55%;
+width:55%;
 }
 
 .card h2{
-  font-size:40px;
-  margin-bottom:20px;
+font-size:38px;
+margin-bottom:20px;
 }
 
-.card p{
-  font-size:18px;
-  line-height:1.7;
-  color:#555;
-}
-
-/* Gallery */
+/* GALLERY */
 .gallery{
-  display:flex;
-  gap:25px;
-  overflow-x:auto;
+display:flex;
+gap:20px;
+overflow-x:auto;
 }
 
 .gallery img{
-  width:350px;
-  border-radius:25px;
-  box-shadow:0 20px 60px rgba(0,0,0,.12);
+width:300px;
+border-radius:20px;
 }
 
-/* Footer */
+/* BOOKING */
+.form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.form input, .form button{
+padding:15px;
+border-radius:10px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+.form button{
+background:black;
+color:white;
+border:none;
+grid-column:span 2;
+cursor:pointer;
+}
+
+/* FLOATING ORDER */
+.order{
+position:fixed;
+bottom:30px;
+right:30px;
+background:black;
+color:white;
+padding:15px 30px;
+border-radius:40px;
+cursor:pointer;
+box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+
 footer{
-  padding:60px;
-  text-align:center;
-  color:#777;
+text-align:center;
+padding:50px;
+color:#777;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-box">
-    <h1>F5 Restaurant</h1>
-    <p>Tirupati · Food · Family · Comfort</p>
-    <button>Reserve a Table</button>
-  </div>
+<div class="nav">
+<a href="#about">About</a>
+<a href="#food">Food</a>
+<a href="#gallery">Gallery</a>
+<a href="#book">Book</a>
+</div>
+
+<div class="hero">
+<div class="hero-box">
+<h1>F5 Restaurant</h1>
+<p>Tirupati’s favorite place to dine</p>
+<button onclick="document.getElementById('book').scrollIntoView()">Book a Table</button>
+</div>
+</div>
+
+<section class="slide" id="about">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
+<div class="card-text">
+<h2>About Us</h2>
+<p>F5 Restaurant offers delicious food, calm ambience and a great dining experience for families and friends.</p>
+</div>
+</div>
 </section>
 
-<!-- ABOUT -->
-<section class="slide">
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
-    <div class="card-text">
-      <h2>About F5</h2>
-      <p>
-        F5 Restaurant is one of Tirupati’s most loved dining places,
-        known for peaceful ambience, flavorful dishes and warm service.
-        A perfect spot for families, friends and casual dining.
-      </p>
-    </div>
-  </div>
+<section class="slide" id="food">
+<div class="card">
+<div class="card-text">
+<h2>Our Specialties</h2>
+<p>Hyderabadi Biryani, Kaju Fried Rice, Butter Roti, Paneer Butter Masala and more.</p>
+</div>
+<img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b">
+</div>
 </section>
 
-<!-- FOOD -->
-<section class="slide">
-  <div class="card">
-    <div class="card-text">
-      <h2>Signature Dishes</h2>
-      <p>
-        Hyderabadi Biryani, Kaju Fried Rice, Butter Roti,
-        Paneer Butter Masala and many more chef-crafted favorites.
-      </p>
-    </div>
-    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b">
-  </div>
+<section class="slide" id="gallery">
+<div class="card">
+<div class="card-text">
+<h2>Gallery</h2>
+<p>Our beautiful space and food.</p>
+</div>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5">
+<img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0">
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
+</div>
+</div>
 </section>
 
-<!-- GALLERY -->
-<section class="slide">
-  <div class="card">
-    <div class="card-text">
-      <h2>Our Space</h2>
-      <p>Designed for comfort, conversations and great food.</p>
-    </div>
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5">
-      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0">
-      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4">
-    </div>
-  </div>
+<section class="slide" id="book">
+<div class="card">
+<div class="card-text">
+<h2>Book a Table</h2>
+<form class="form">
+<input placeholder="Your Name">
+<input placeholder="Phone Number">
+<input placeholder="Date">
+<input placeholder="Time">
+<button>Reserve Now</button>
+</form>
+</div>
+<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5">
+</div>
 </section>
+
+<div class="order">🍽 Order Now</div>
 
 <footer>
-  © 2025 F5 Restaurant · Tirupati
+© 2026 F5 Restaurant · Tirupati
 </footer>
 
 </body>
